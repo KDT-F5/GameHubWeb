@@ -21,6 +21,270 @@
 <html>
 <head>
     <title>Title</title>
+
+    <style>
+
+        * {
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        /*
+
+        div {
+
+            border: 1px solid black;
+
+        } */
+
+        .container {
+
+            width: 700px;
+
+            height: 550px;
+
+            margin: auto;
+
+            border: 2px solid rgb(0, 106, 255);
+
+            border-radius: 7px;
+            padding:0;
+        }
+
+
+
+        /*1층*/
+
+        .header {
+
+            width: 100%;
+
+            height: 7%;
+
+            color: white;
+
+            background-color: rgb(0, 106, 255);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+        }
+
+        /*2층*/
+
+        .contents {
+
+            width: 100%;
+
+            height: 83%;
+
+            padding-top: 2%;
+
+            padding-bottom: 2%;
+
+        }
+
+
+
+        .contents div {
+
+            height: 11.11%;
+
+            display: flex;
+
+            align-items: center; /* 세로 가운데 정렬 */
+
+        }
+
+
+
+        .contents .leftName {
+
+            width: 25%;
+
+            height: 100%;
+
+        }
+
+
+
+        .text {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            width: 100%;
+
+            height: 100%;
+
+            padding-right: 25px;
+
+        }
+
+
+
+        .idbox .right button {
+
+            background-color: rgb(0, 106, 255);
+
+            border: rgb(0, 106, 255);
+
+            border-radius: 3px;
+
+            color: white;
+
+            padding: 4px 8px;
+
+        }
+
+
+
+        .idbox .right button:hover {
+
+            background-color: rgb(23, 41, 66);
+
+            border: rgb(23, 41, 66);
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .code .right button {
+
+            background-color: rgb(0, 106, 255);
+
+            border: rgb(0, 106, 255);
+
+            border-radius: 3px;
+
+            color: white;
+
+            padding: 4px 8px;
+
+        }
+
+
+
+        .code .right button:hover {
+
+            background-color: rgb(23, 41, 66);
+
+            border: rgb(23, 41, 66);
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .contents .right {
+
+            width: 75%;
+
+            height: 100%;
+
+        }
+
+
+
+        .right {
+
+            padding-left: 20px;
+
+        }
+
+
+
+        .right input {
+
+            margin-right: 10px;
+
+        }
+
+
+
+        .longtext {
+
+            width: 55%;
+
+        }
+
+
+
+        .longlongtext {
+
+            width: 75%;
+
+        }
+
+
+
+        /*3층*/
+
+        .footer {
+
+            width: 100%;
+
+            height: 10%;
+
+            text-align: center;
+
+            padding-top: 10px;
+
+        }
+
+
+
+        .footer button, #rewriteBtn, #searchBtn {
+
+            color: white;
+
+            background-color: rgb(0, 106, 255);
+
+            border: rgb(0, 106, 255);
+
+            border-radius: 3px;
+
+            padding: 4px 8px;
+
+        }
+
+
+
+        .footer button:hover, #rewriteBtn:hover, #searchBtn:hover {
+
+            background-color: rgb(23, 41, 66);
+
+            border: rgb(23, 41, 66);
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+    </style>
+
+
+
+
 </head>
 <body>
 <form action="/register.member" method="post">
@@ -302,11 +566,8 @@
 
 
             }else if(response==="false"){
-
                 $("#dupliCheckMsg").empty();
-
                 $("#dupliCheckMsg").append("사용 가능한 아이디입니다");
-
             }
         })
     })

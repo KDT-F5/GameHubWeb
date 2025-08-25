@@ -43,11 +43,8 @@ public class MemberDAO {
 
 
 // data 받은것 db에 넣기
-
     public int insertAll(MemberDTO dto) throws Exception {
-
         String sql = "insert into members values(?,?,?,?,?,?,?,?,sysdate)";
-
         try (Connection con = this.getConnection(); PreparedStatement pstat = con.prepareStatement(sql);) {
             pstat.setString(1, dto.getId());
             pstat.setString(2, dto.getPw());
