@@ -39,15 +39,16 @@ public class MemberController extends HttpServlet {
                     dao.insertMember(temp);
 
 
-                    response.sendRedirect("/index.jsp");
-                    break;
-                }
-                case "login.member": {
-                    //로그인
-                    String id = request.getParameter("id");
-                    String pw = request.getParameter("pw");
-                    String lockPw = request.getParameter("lockPw");
-                    boolean result;
+                response.sendRedirect("/index.jsp");
+                break;
+            }
+            case "login.member": {
+                //로그인
+
+                String id = request.getParameter("id");
+                String pw = request.getParameter("pw");
+                String lockPw = this.encrypt("pw");
+                boolean result = dao.login(id,lockPw);
 
                     break;
                 }

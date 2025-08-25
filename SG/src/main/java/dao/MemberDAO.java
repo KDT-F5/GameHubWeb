@@ -1,3 +1,4 @@
+
 package dao;
 
 import dto.MemberDTO;
@@ -127,5 +128,18 @@ public class MemberDAO {
                 return pstat.executeUpdate();
             }
         }
+
     }
-}
+        public boolean login (String id, String lockPw) throws Exception {
+            String sql = "select * from members where id=? and pw=?";
+            try (Connection con = this.getConnection(); PreparedStatement pstat = con.prepareStatement(sql);
+            ) {
+                pstat.setString(1, id);
+                pstat.setString(2, lockPw);
+                try (ResultSet rs = pstat.executeQuery();) {
+                    return rs.next();
+                }
+            }
+        }
+
+    }
