@@ -83,7 +83,7 @@ public class MemberController extends HttpServlet {
                 String id = request.getParameter("id");
                 int del_id = dao.delete_assign(id);
 
-                response.sendRedirect("/webapp/error.jsp");
+                response.sendRedirect("/error.jsp");
                 break;
             }
             case "/idcheck.member":{

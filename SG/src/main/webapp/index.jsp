@@ -160,23 +160,6 @@
         $("#two").hide();
         $("#one").show();
     });
-
-    $(function () {
-        // 회원 정보 불러오기
-        $.ajax({
-            url: "/mypages.members",
-            type: "GET",
-            dataType: "json"
-        }).done(function (data) {
-            $("#name").val(data.name);
-            $("#phone").val(data.phone);
-            $("#email").val(data.email);
-            $("#zipcode").val(data.zipcode);
-            $("#address1").val(data.address1);
-            $("#address2").val(data.address2);
-            $("#signupDate").val(data.join_date);
-        });
-    });
 </script>
 
 </body>
