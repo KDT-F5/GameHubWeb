@@ -31,7 +31,7 @@ public class MemberDAO {
     }
 
 
-    public int delete_assign(String id) throws exception, Exception {
+    public int delete_assign(String id) throws Exception {
 
         String sql = "delete from member where id = ? ";
         try (Connection con = this.getconnection()) {
