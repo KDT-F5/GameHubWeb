@@ -566,11 +566,8 @@
 
 
             }else if(response==="false"){
-
                 $("#dupliCheckMsg").empty();
-
                 $("#dupliCheckMsg").append("사용 가능한 아이디입니다");
-
             }
         })
     })

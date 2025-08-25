@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("*.member")
 public class MemberController extends HttpServlet {
@@ -59,7 +60,12 @@ public class MemberController extends HttpServlet {
             }
             case "/idcheck.member":{
                 // 아이디 중복 체크
-
+                String id = request.getParameter("id");
+                
+                //ajax로 받기
+                String result = String.valueOf(dao.isDupli(id));
+                PrintWriter pw = response.getWriter();
+                pw.append(result); // 스트링값 true,false 보내줌
             }
         }
         }catch (Exception e){}
