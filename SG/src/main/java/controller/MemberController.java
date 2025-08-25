@@ -43,7 +43,7 @@ public class MemberController extends HttpServlet {
                 String id = request.getParameter("id");
                 String pw = request.getParameter("pw");
                 String lockPw = request.getParameter("lockPw");
-
+                boolean result;
 
 
                 break;
