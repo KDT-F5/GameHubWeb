@@ -2,13 +2,16 @@ package controller;
 
 import dao.MemberDAO;
 import dto.MemberDTO;
+import util.SecurityUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("*.member")
 public class MemberController extends HttpServlet {
@@ -22,7 +25,7 @@ public class MemberController extends HttpServlet {
             case "register.member":{
                 //회원가입
                 String id = request.getParameter("id");
-                String pw = this.encrypt(request.getParameter("pw"));
+                String pw = SecurityUtil.encrypt(request.getParameter("pw"));
                 String name = request.getParameter("name");
                 String phonenum = request.getParameter("phone");
                 String email = request.getParameter("email");
