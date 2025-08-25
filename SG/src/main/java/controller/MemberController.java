@@ -59,7 +59,7 @@ public class MemberController extends HttpServlet {
                 break;
             }
             case "/idcheck.member":{
-                // 아이디 중복 체크
+                // 아이디 중복 체크 확인
                 String id = request.getParameter("id");
                 
                 //ajax로 받기
