@@ -24,7 +24,7 @@ public class MemberController extends HttpServlet {
 
         try {
             switch (cmd) {
-                case "register.member": {
+                case "/register.member": {
                     //회원가입
                     String id = request.getParameter("id");
                     String pw = SecurityUtil.encrypt(request.getParameter("pw"));
@@ -39,26 +39,25 @@ public class MemberController extends HttpServlet {
                     dao.insertMember(temp);
 
 
-                response.sendRedirect("/index.jsp");
-                break;
-            }
-            case "login.member": {
-                //로그인
-
-                String id = request.getParameter("id");
-                String pw = request.getParameter("pw");
-                String lockPw = this.encrypt("pw");
-                boolean result = dao.login(id,lockPw);
+                    response.sendRedirect("/index.jsp");
+                    break;
+                }
+                case "/login.member": {
+                    //로그인
+                    String id = request.getParameter("id");
+                    String pw = request.getParameter("pw");
+                    String lockPw = request.getParameter("lockPw");
+                    boolean result;
 
                     break;
                 }
-                case "logout.member": {
+                case "/logout.member": {
                     //로그아웃
                     request.getSession().setAttribute("loginId", null);
                     response.sendRedirect("/");
                     break;
                 }
-                case "update.member": {
+                case "/update.member": {
                     String id = request.getParameter("id");
                     String name = request.getParameter("name");
                     String phone = request.getParameter("phone");
@@ -73,7 +72,7 @@ public class MemberController extends HttpServlet {
 
                     break;
                 }
-                case "delete.member": {
+                case "/delete.member": {
                     //회원탈퇴
                     String id = request.getParameter("id");
                     int del_id = dao.deleteAssign(id);
