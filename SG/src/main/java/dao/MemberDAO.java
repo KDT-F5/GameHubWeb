@@ -31,7 +31,6 @@ public class MemberDAO {
         String sql = "insert into members(id, pw, name, phone, email, zipcode, address1, address2, join_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
             pstmt.setString(1, id);
             pstmt.setString(2, pw);
             pstmt.setString(3, name);
