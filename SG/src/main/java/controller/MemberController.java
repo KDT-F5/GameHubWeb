@@ -15,24 +15,26 @@ public class MemberController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cmd = request.getRequestURI();
 
-        switch(cmd) {
-            case "register.member":{
+        switch (cmd) {
+            case "register.member": {
                 //회원가입
                 break;
             }
-            case "login.member":{
+            case "login.member": {
                 //로그인
                 break;
             }
-            case "logout.member":{
+            case "logout.member": {
                 //로그아웃
+                request.getSession().setAttribute("loginId", null);
+                response.sendRedirect("/");
                 break;
             }
-            case "update.member":{
+            case "update.member": {
                 //업데이트
                 break;
             }
-            case "delete.member":{
+            case "delete.member": {
                 //회원탈퇴
                 break;
             }
