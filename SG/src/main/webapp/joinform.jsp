@@ -51,7 +51,7 @@
             border: 2px solid rgb(0, 106, 255);
 
             border-radius: 7px;
-
+            padding:0;
         }
 
 
@@ -252,7 +252,7 @@
 
 
 
-        .footer button {
+        .footer button, #rewriteBtn, #searchBtn {
 
             color: white;
 
@@ -268,7 +268,7 @@
 
 
 
-        .footer button:hover {
+        .footer button:hover, #rewriteBtn:hover, #searchBtn:hover {
 
             background-color: rgb(23, 41, 66);
 
