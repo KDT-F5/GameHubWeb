@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.io.PrintWriter;
 
 @WebServlet("*.member")
@@ -17,6 +18,7 @@ public class MemberController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cmd = request.getRequestURI();
+        MemberDTO dto = new MemberDTO();
         MemberDAO dao = MemberDAO.getInstance();
 
         try {
@@ -47,35 +49,51 @@ public class MemberController extends HttpServlet {
                     boolean result;
 
 
-                    break;
-                }
-                case "logout.member": {
-                    //로그아웃
-                    request.getSession().setAttribute("loginId", null);
-                    response.sendRedirect("/");
-                    break;
-                }
-                case "update.member": {
-                    //업데이트
-                    break;
-                }
-                case "delete.member": {
-                    //회원탈퇴
-                    String id = request.getParameter("id");
-                    int del_id = dao.delete_assign(id);
+                break;
+            }
+            case "logout.member":{
+                //로그아웃
+                request.getSession().setAttribute("loginId", null);
+                response.sendRedirect("/");
+                break;
+            }
+            case "update.member":{
+                String id = request.getParameter("id");
+                String name = request.getParameter("name");
+                String phone = request.getParameter("phone");
+                String email = request.getParameter("email");
+                String zipcode = request.getParameter("zipcode");
+                String address1 = request.getParameter("address1");
+                String address2 = request.getParameter("address2");
 
-                    response.sendRedirect("/webapp/error.jsp");
-                    break;
+                try {
+                    List<MemberDTO> list = dao.allbateMember(); // ✅ 예외 처리 필요
+                    dao.Update(id, phone, email, zipcode, address1, address2);
+                    response.sendRedirect("/index.jsp");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    request.setAttribute("error", "회원 업데이트 중 오류 발생");
+                    request.getRequestDispatcher("/error.jsp").forward(request, response);
                 }
-                case "/idcheck.member": {
-                    // 아이디 중복 체크 확인
-                    String id = request.getParameter("id");
 
-                    //ajax로 받기
-                    String result = String.valueOf(dao.isDupli(id));
-                    PrintWriter pw = response.getWriter();
-                    pw.append(result); // 스트링값 true,false 보내줌
-                }
+                break;
+            }
+            case "delete.member":{
+                //회원탈퇴
+                String id = request.getParameter("id");
+                int del_id = dao.delete_assign(id);
+
+                response.sendRedirect("/webapp/error.jsp");
+                break;
+            }
+            case "/idcheck.member":{
+                // 아이디 중복 체크 확인
+                String id = request.getParameter("id");
+
+                //ajax로 받기
+                String result = String.valueOf(dao.isDupli(id));
+                PrintWriter pw = response.getWriter();
+                pw.append(result); // 스트링값 true,false 보내줌
             }
 
         } catch (Exception e) {
