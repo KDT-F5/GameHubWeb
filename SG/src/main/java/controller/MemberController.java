@@ -15,7 +15,7 @@ public class MemberController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cmd = request.getRequestURI();
-        MemberDAO dao = MemberDAO.getinstance();
+        MemberDAO dao = MemberDAO.getInstance();
 
         try {
             switch (cmd) {
@@ -39,7 +39,7 @@ public class MemberController extends HttpServlet {
                 }
                 case "delete.member": {
                     //회원탈퇴
-                    String id = request.getParameter("id");
+                    String id = request.getParameter("del_id");
                     int del_id = dao.delete_assign(id);
 
                     response.sendRedirect("/webapp/error.jsp");

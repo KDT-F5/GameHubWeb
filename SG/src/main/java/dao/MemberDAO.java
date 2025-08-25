@@ -25,7 +25,7 @@ public class MemberDAO {
     //JNDI
     private Connection getConnection() throws Exception {
         Context ctx = new InitialContext(); // context.xml의인스턴스를 만드는 것, not dbcp의 인스턴스를 만드는것
-        DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle"); // 다운캐스팅 필수
+        DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/study"); // 다운캐스팅 필수
         return ds.getConnection(); // 톰캣이만들어놓은 인스턴스로 겟 커넥션
     }
 

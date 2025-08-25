@@ -10,7 +10,7 @@
 <style>
     border{ box-sizing: border-box;}
 
-    div*{   border: 1px solid black;
+    div*{  border: 1px solid black;
 
 
     }
@@ -23,7 +23,7 @@
 </head>
 
 
-<body>
+<body id = "container">
 
 <div>
 
@@ -34,9 +34,9 @@
     <%--밸류 세션 id 이름 양식따라 변경--%>
 </form>
 
-<div id = "container">
+<div>
 
-    <button id="cancel_btn"> 취소</button>
+    <button id="cancel_btn"> 취소 </button>
 
     <script>
         $("#cancel_btn").on("click", function () {
